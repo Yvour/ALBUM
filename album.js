@@ -5,7 +5,7 @@ function Album(img_list){
     var currentImage = 0;
     var rendered = null;
     var state = 1;
-    var timerStep = 100;
+    var timerStep = 50;
     var timers = [];
     var step = 0;
     function getCurrentImage(){return currentImage};
@@ -19,11 +19,10 @@ function Album(img_list){
     }
     function render(){
         var d = document.createElement('div');
-        console.log(state);
         d.className = "fade__container";
         d.innerHTML = '<div class = "album__img_container album__image"><img class = "album__current_image album__image"/><img class = "album__right_image album__image"/><img class = "album__left_image album__image"/></div><button class = album__left_button>Left</button><button class = album__right_button>Right</button>';
         rendered = d;
-        setCurrentImage(7);
+        setCurrentImage(0);
         d.getElementsByClassName('album__right_button')[0].onclick = function(){
             self.moveRight();
         }
@@ -33,7 +32,7 @@ function Album(img_list){
         return d;
     }
     function moveImage(isRight){
-        console.log(this);
+
 
         try{
         step = (isRight)?1:-1;
@@ -47,20 +46,10 @@ function Album(img_list){
         }
     }
     function changeImageStage(){
-        console.log('changeImageStage state is '+ state);
+
         rendered.getElementsByClassName('album__current_image')[0].style.opacity = state.toFixed(1);
-    /*    var img = rendered.getElementsByClassName('album__right_image')[0].style;
-        var currimg = rendered.getElementsByClassName('album__current_image')[0];
-        var curr = getComputedStyle(currimg);
-        img.position = 'absolute';
-        img.left = curr.left;
-        img.top = curr.top;
-       img.zIndex = '1';
-        img.display = 'inline';
-        currimg.style.position = 'absolute';
-      currimg.style.zIndex = '2';
-      */  
-        state-=0.1;
+
+        state-=0.05;
         if (state<=0){
             setCurrentImage(currentImage + step);
             rendered.getElementsByClassName('album__current_image')[0].style.opacity = '1'
@@ -68,7 +57,6 @@ function Album(img_list){
             state = 1;
         }
         else {
-            console.log('timerstart');
             var timer = setTimeout( changeImageStage, timerStep
                         );
         };
