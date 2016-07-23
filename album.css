@@ -1,0 +1,15 @@
+  .album__image {
+      width:400px;
+      height:400px;
+      background-size:400px 400px;
+  }
+  .album__current_image{
+      
+  }
+  .album__right_image{
+      display:none;
+  }
+  .album__left_image{
+      display:none;
+  }
+  

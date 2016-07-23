@@ -1,0 +1,38 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>The image fade</title>
+  <meta name="description" content="css image fade">
+  <meta name="author" content="Ivan V. Urvanov">
+
+  <link rel="stylesheet" href="album.css">
+
+  <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <style>
+
+  </style>
+  
+</head>
+
+<body>
+
+<script src = "album.js"></script>
+  <script>
+
+  var image_list = [
+  "http://kaifolog.ru/uploads/posts/2014-08/thumbs/1408943224_004.jpg",
+  "http://kaifolog.ru/uploads/posts/2014-08/thumbs/1408943223_005.jpg",
+  "http://kaifolog.ru/uploads/posts/2014-08/thumbs/1408943180_021_2.jpg",
+  "http://kaifolog.ru/uploads/posts/2014-08/thumbs/1408943197_022.jpg"
+  ];
+  var a = new Album(image_list);
+ 
+  document.body.appendChild(a.render());
+  </script>
+</body>
+</html> 
